@@ -2,6 +2,7 @@ package com.k42un0k0.poopmod;
 
 import com.k42un0k0.poopmod.block.PoopBlocks;
 import com.k42un0k0.poopmod.codegen.PoopCodegen;
+import com.k42un0k0.poopmod.item.PoopItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,6 +44,7 @@ public class PoopMod {
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         PoopBlocks.register(modEventBus);
+        PoopItems.register(modEventBus);
         PoopCodegen.register(modEventBus);
     }
 
