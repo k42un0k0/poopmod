@@ -34,14 +34,14 @@ public class PoopLootTableProvider extends LootTableProvider {
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
-        return ImmutableList.of(Pair.of(ExampleModLootTables::new, LootParameterSets.BLOCK));
+        return ImmutableList.of(Pair.of(PoopLootTables::new, LootParameterSets.BLOCK));
     }
 
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
     }
 
-    private static class ExampleModLootTables extends BlockLootTables {
+    private static class PoopLootTables extends BlockLootTables {
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return PoopBlocks.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList());
@@ -49,6 +49,7 @@ public class PoopLootTableProvider extends LootTableProvider {
 
         @Override
         protected void addTables() {
+            dropSelf(PoopBlocks.POOP_BLOCK.get());
         }
     }
 
