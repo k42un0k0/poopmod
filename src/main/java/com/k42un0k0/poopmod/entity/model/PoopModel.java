@@ -35,6 +35,8 @@ public class PoopModel <T extends PoopEntity> extends EntityModel<T> {
 	@Override
 	public void setupAnim(PoopEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
+		this.head.xRot = headPitch * ((float)Math.PI / 180F);
+		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 	}
 
 	@Override
