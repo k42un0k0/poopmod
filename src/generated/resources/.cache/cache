@@ -1,0 +1,5 @@
+ef3edb638e62ca54f2790d82b22d1995023d3791 assets/poopmod/blockstates/poop_block.json
+b424feda396390731c0ab7a96d554b7845dbf8ff assets/poopmod/lang/en_us.json
+a8cfaf253b89d0a785663c3976b6669cb68c5769 assets/poopmod/models/item/poop_block.json
+98167609bf3898587f7565736a6fc24a7966cacd assets/poopmod/models/item/poop_spawn_egg.json
+d872038e35c9971944b6232eba39238a29947f87 data/poopmod/loot_tables/blocks/poop_block.json

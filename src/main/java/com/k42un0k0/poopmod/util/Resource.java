@@ -23,6 +23,10 @@ public class Resource {
         return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);
     }
 
+    public static ResourceLocation insert(ResourceLocation rl, String prefix){
+        return new ResourceLocation(rl.getNamespace(),prefix+rl.getPath());
+    }
+
     public static ResourceLocation replace(ResourceLocation rl, String target, String replacement) {
         return new ResourceLocation(rl.getNamespace(), rl.getPath().replace(target, replacement));
     }

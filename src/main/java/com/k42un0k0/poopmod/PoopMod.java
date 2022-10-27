@@ -2,6 +2,8 @@ package com.k42un0k0.poopmod;
 
 import com.k42un0k0.poopmod.block.PoopBlocks;
 import com.k42un0k0.poopmod.codegen.PoopCodegen;
+import com.k42un0k0.poopmod.entity.PoopEntityTypes;
+import com.k42un0k0.poopmod.entity.render.PoopRenderer;
 import com.k42un0k0.poopmod.item.PoopItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -10,6 +12,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -45,6 +48,7 @@ public class PoopMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         PoopBlocks.register(modEventBus);
         PoopItems.register(modEventBus);
+        PoopEntityTypes.register(modEventBus);
         PoopCodegen.register(modEventBus);
     }
 
@@ -57,6 +61,9 @@ public class PoopMod {
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
+
+        RenderingRegistry.registerEntityRenderingHandler(PoopEntityTypes.POOP.get(), PoopRenderer::new);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

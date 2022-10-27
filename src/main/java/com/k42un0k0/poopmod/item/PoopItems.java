@@ -2,12 +2,15 @@ package com.k42un0k0.poopmod.item;
 
 import com.k42un0k0.poopmod.PoopMod;
 import com.k42un0k0.poopmod.block.PoopBlocks;
+import com.k42un0k0.poopmod.entity.PoopEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,5 +37,8 @@ public class PoopItems {
             () -> new BlockItem(PoopBlocks.POOP_BLOCK.get(),
                     defaultProperties().food(new Food.Builder().effect(() -> new EffectInstance(Effects.HARM, 200),
                             1f).build())));
-
+    public static final RegistryObject<SpawnEggItem> POOP_SPAWN_EGG = ITEMS.register(
+            "poop_spawn_egg",
+            () -> new ForgeSpawnEggItem(PoopEntityTypes.POOP, 0x464F56, 0x1D6336,
+                    defaultProperties()));
 }

@@ -1,5 +1,7 @@
 package com.k42un0k0.poopmod.codegen.assets;
 
+import com.k42un0k0.poopmod.item.PoopItems;
+import com.k42un0k0.poopmod.util.Resource;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -15,6 +17,13 @@ public class PoopItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        withExistingParent(Resource.name(PoopItems.POOP_SPAWN_EGG.get()), "item/template_spawn_egg");
+        withBlockParent(PoopItems.POOP_BLOCK.get());
+    }
+
+    private void withBlockParent(Item item) {
+        ResourceLocation rl = Objects.requireNonNull(item.getRegistryName());
+        withExistingParent(Resource.name(item), Resource.insert(rl, BLOCK_FOLDER + "/"));
     }
 
     private void simpleItem(Item item) {
